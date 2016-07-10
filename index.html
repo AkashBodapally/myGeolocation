@@ -1,0 +1,60 @@
+<html> 
+	<head>
+		<script src="js/libs/jquery.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?key=&sensor=false&extension=.js"></script>
+		<script src="js/libs/angular.js"></script>
+		<script src="js/libs/bootstrap.min.js"></script>
+		
+		<link rel="stylesheet" href="css/libs/bootstrap.min.css">
+		<link rel="stylesheet" href="css/app.css">
+	</head>
+	<body ng-app="mapsApp">
+		<div ng-controller="appController">
+				<div id="class" class="col-sm-4 .col-xs-12">
+					<h1>Geo Location</h1>
+					<hr/>
+					<div class="row" >
+					
+						<div class="col-sm-7"><button ng-click="locateMe()" class="btn btn-primary">Locate me</button></div>
+						
+					</div>
+					<hr/>
+					<div class="row">
+						<div class="col-sm-12">
+							<h4>Locate a website</h4>
+							<form id="formGeoLocation" ng-submit="addUrlToCollection()">
+							  <input id="url" type="url" ng-model="websiteURL" class="form-control website" required="" value="" name="website">
+							  <input class="btn btn-primary" type="submit" value="Locate">
+							</form>
+							<hr>
+						</div>
+					  </div>
+					<div class="row"  ng-if="markers.length > 0">
+						<div class="col-sm-12">
+							<h4> History</h4>
+						</div>
+						<div class="col-sm-12">
+							<span class="col-sm-12 website" ng-repeat="marker in markers" ng-if="marker.details.website"> {{marker.title}}<button id="clearSiteDetails" class="btn btn-default pull-right" ng-click="openInfoWindow($event, marker)">details</button></span>
+						</div>
+					</div>
+				
+				</div>
+				<div class="col-sm-8 .col-xs-12">
+					<div id="map" ></div>
+					<div id="siteDetails" ng-if="currentLocationDetails">
+						ip: {{currentLocationDetails.query}}<br/>
+						Country: {{currentLocationDetails.country}}<br/>
+						Region: {{currentLocationDetails.region}}<br/>
+						City: {{currentLocationDetails.city}}<br/>
+						Timezone: {{currentLocationDetails.timezone}}<br/>
+						Latitude: {{currentLocationDetails.lat}}<br/>
+						Longitude: {{currentLocationDetails.lon}}<br/>
+					</div>
+				</div>
+				
+			
+		</div>
+		
+	<script src="js/app.js"></script>	
+	</body>
+</html>

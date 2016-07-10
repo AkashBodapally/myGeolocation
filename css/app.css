@@ -1,0 +1,41 @@
+body{
+	margin: 0;
+}
+#map {
+    height: 100%;
+    width: 100%;
+	margin: 0;
+}
+#url{
+	width: 60%;
+    margin: 5px 10px;
+    display: inline-block;
+}
+#class{
+	min-height: 284px;
+}
+#siteDetails{
+	position: absolute;
+    top: 0;
+    right: 0;
+    height: 180px;
+    width: 250px;
+    padding: 15px;
+	color: white;
+	background-color: rgba(1,1,1,0.5)
+}
+.locatioWebsite{
+	width: 30%;
+}
+.website{
+	padding: 5px;
+}
+.infoWindowContent {
+    font-size:  14px !important;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+h2 {
+    margin-bottom:0;
+    margin-top: 0;
+}
